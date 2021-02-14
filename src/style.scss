@@ -1,3 +1,181 @@
+//Tailwind
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+//Fonts
+@import url('assets/fonts/Circe/stylesheet.css');
+
+$dark:#282828;
+$black:#0B0B0B;
+$output:#5E5E5E;
+
+//Gradients
+$cars1:linear-gradient(89.89deg, #D6D4FF 0.1%, #EFC7ED 50.52%, #FFD4D9 99.9%);
+$cars2:linear-gradient(89.89deg, #EF0073 0.1%, #6600B6 99.9%);
+$cars3:linear-gradient(89.89deg, #D599F8 0.1%, #9752FF 99.9%);
+$cars4:linear-gradient(89.89deg, #EF0073 0.1%, #6600B6 99.9%);;
+$cars5:#41216C;
+
+
+$cars1-step1-loosing-opacity:linear-gradient(90deg, #D6D4FF 0%, rgba(239, 199, 237, 0.5) 48.44%, rgba(255, 212, 217, 0) 100%);
+$cars2-step1-loosing-opacity:linear-gradient(90deg, #EE0073 1.02%, rgba(169, 0, 149, 0.2) 49.46%, rgba(103, 0, 181, 0) 101.02%);
+$cars3-step1-loosing-opacity:linear-gradient(90deg, #D498F8 0%, rgba(182, 117, 251, 0.2) 48.44%, rgba(151, 82, 255, 0) 100%);
+$cars4-step1-loosing-opacity: linear-gradient(90deg, #EE0073 0%, rgba(171, 0, 148, 0.2) 48.44%, rgba(103, 0, 181, 0) 100%);
+$cars5-step1-loosing-opacity:linear-gradient(90deg, #D6D4FF 0%, rgba(239, 199, 237, 0.5) 48.44%, rgba(255, 212, 217, 0) 100%);
+
+$cars1-step2-loosing-opacity:linear-gradient(90deg, #D6D4FF 1.02%, rgba(239, 199, 237, 0.5) 49.46%, rgba(255, 212, 217, 0) 101.02%);
+$cars2-step2-loosing-opacity:linear-gradient(90deg, #EE0073 1.02%, rgba(169, 0, 149, 0.2) 49.46%, rgba(103, 0, 181, 0) 101.02%);
+$cars3-step2-loosing-opacity:linear-gradient(90deg, #D396F8 1.02%, rgba(182, 117, 251, 0.2) 49.46%, rgba(153, 84, 254, 0) 101.02%);
+$cars4-step2-loosing-opacity: linear-gradient(90deg, #EE0073 1.02%, rgba(170, 0, 148, 0.2) 49.46%, rgba(102, 0, 181, 0) 101.02%);
+$cars5-step2-loosing-opacity:linear-gradient(89.89deg, rgba(214, 212, 255, 0) 0.1%, rgba(65, 33, 108, 0.2) 46.88%, #41216C 99.9%);
+
+
+$cars1-getting-opacity:linear-gradient(89.89deg, rgba(214, 212, 255, 0) 0.1%, rgba(239, 199, 237, 0) 46.88%, #FFD4D9 99.9%);
+$cars2-getting-opacity:linear-gradient(89.89deg, rgba(214, 212, 255, 0) 0.1%, rgba(131, 0, 167, 0.3) 46.88%, #6700B5 99.9%);
+$cars3-getting-opacity:linear-gradient(89.89deg, rgba(214, 212, 255, 0) 0.1%, rgba(163, 96, 253, 0.2) 46.88%, #9752FF 99.9%);
+$cars4-getting-opacity:linear-gradient(89.89deg, rgba(214, 212, 255, 0) 0.1%, rgba(129, 0, 168, 0.2) 46.88%, #6700B5 99.9%);
+$cars5-getting-opacity:linear-gradient(89.89deg, rgba(214, 212, 255, 0) 0.1%, rgba(65, 33, 108, 0.2) 46.88%, #41216C 99.9%);
+//Gradients END
+
+//Gradient classes
+.bg-grad{
+  background: $cars1;
+}
+.bd-grad{
+  background: $cars1;
+  & > button{
+    border: 0;
+    background: $dark;
+    margin: 1px;
+  }
+
+}
+.bg-step1-loosing-opacity{
+  background: $cars1-step1-loosing-opacity;
+}
+.bg-step2-loosing-opacity{
+  background: $cars1-step2-loosing-opacity;
+}
+.bg-getting-opacity{
+  background: $cars1-getting-opacity;
+}
+//Gradient classes END
+
+//Addiction classes
+.dark-text{
+  color: $dark;
+}
+.dark-bg{
+  background: $dark;
+}
+.black-bg{
+  background: $black;
+}
+
+html{
+  overflow-x: hidden;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: Circe;
+  overflow-x: hidden;
+}
+*{
+  scroll-behavior: smooth;
+}
+.output{
+  background: $output;
+}
+.steps{
+  grid-template-rows: 0.25fr 0.4834fr 1fr;
+}
+.advantages1.wrapper{
+  height: 30rem;
+}
+.advantages2.wrapper{
+  height: 24rem;
+}
+.arrow{
+  top: 60% ;
+}
+.separator-types:before{
+  content: '';
+  position: absolute;
+  width: 1px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);;
+}
+.steps{
+  grid-template-rows: 0.25fr 0.2fr 1fr;
+}
+
+@media screen and (min-width: 768px) {
+  .steps{
+    grid-template-rows: 0.25fr 0.4834fr 1fr;
+  }
+  .bg-step2-loosing-opacity{
+    bottom:13.7rem;
+  }
+  .advantages1.wrapper{
+    height: 30rem;
+  }
+  .advantages2.wrapper{
+    height: 24rem;
+  }
+  .arrow{
+    top: 60% ;
+  }
+  .separator:before{
+    content: '';
+    position: absolute;
+    width: 1px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .steps{
+    grid-template-rows: 1fr 0.4834fr;
+  }
+  .bg-step2-loosing-opacity{
+    bottom:13.88rem;
+  }
+  .advantages1.wrapper{
+    height: 30rem;
+  }
+  .advantages2.wrapper{
+    height: 24rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  body{
+    font-size: 18px;
+  }
+  .advantages1.wrapper{
+    height: 30rem;
+  }
+  .advantages2.wrapper{
+    height: 22rem;
+  }
+  .bg-step2-loosing-opacity{
+    bottom:14.75rem;
+  }
+}
+@media screen and (min-width: 1536px) {
+  body{
+    font-size: 20px;
+  }
+  .bg-step2-loosing-opacity{
+    bottom:15.7rem;
+  }
+}
+
+//Addiction classes END
+

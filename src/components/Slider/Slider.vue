@@ -1,26 +1,19 @@
 <template>
-  <div class="wrapper flex relative mt-3  mx-auto overflow-x-hidden"
-       :style="'height:'+height+';' +
-               'width:'+width">
+  <div class="wrapper flex relative mt-3  mx-auto overflow-x-hidden w-full h-80">
       <div v-for="(slide,index) in slides"
-           class="slide w-full absolute z-10 "
            :key="slide">
-        <transition name="slider">
-          <div v-if="currentSlide === index">
-            <img  :src="require('@/assets/'+way+slide+format)"
-                  class="w-full"
-                  :style="'height:'+height"
-                  alt="">
+        <transition :name="transName">
+          <div v-if="index <= 4 "
+               class="w-1/3 absolute z-10 slide  "
+               :class="index === 0 ? '-left-1/3' : index === 1 ? 'left-0' : index === 2 ? 'left-1/3' : index === 3 ? 'left-2/3' : index === 4 ? 'left-full' : ''">
+
           </div>
         </transition>
       </div>
-    <div class="pagination absolute z-20 bottom-1.5 flex justify-center w-full">
-      <div v-for="(slide,index) in slides"
-           :key="slide"
-           class="circle rounded-3xl bg-gray-200 transition w-5 h-5 mx-1"
-           :class="index === currentSlide ? 'bg-gray-400' : ''"
-           @click="paginate(index)"></div>
-    </div>
+      <div class="controls ">
+        <div class="left absolute top-1/2 left-0 z-50" @click="changeSlide('prev')"><p>prev</p></div>
+        <div class="right absolute top-1/2 right-0 z-50" @click="changeSlide('next')"><p>next</p></div>
+      </div>
   </div>
 </template>
 
@@ -28,47 +21,49 @@
 
 export default {
   name: 'Slider',
-  props: ['way', 'format', 'slides', 'height', 'width', 'interval', 'timeout'],
+  props: ['way', 'format'],
   data () {
     return {
-      currentSlide: 0,
-      sliding: true
+      transName: '',
+      slides: [1, 2, 3, 4, 5]
     }
   },
   methods: {
-    slideFunc: function () {
-      setInterval(() => {
-        if (this.currentSlide === this.slides - 1 && this.sliding === true) {
-          this.currentSlide = 0
-        } else if (this.sliding === true) {
-          this.currentSlide++
-        }
-      }, this.interval)
-    },
-    paginate: function (index) {
-      this.currentSlide = index
-      this.sliding = false
-      setTimeout(() => {
-        this.sliding = true
-      }, this.timeout)
+    changeSlide: function (direction) {
+      if (direction === 'prev') {
+        this.transName = 'slide-prev'
+        this.slides.unshift(this.slides.pop())
+        setTimeout(function () {
+          this.transName = ''
+        }, 500)
+      } else {
+        this.transName = 'slide-next'
+        this.slides.push(this.slides.shift())
+        setTimeout(function () {
+          this.transName = ''
+        }, 500)
+      }
     }
-  },
-  mounted () {
-    this.slideFunc()
   }
-
 }
 
 </script>
 
 <style lang="scss" scoped>
-  .slider-enter-active, .slider-leave-active {
-    transition: all .5s;
+  .slide-prev-enter-active,
+  .slide-prev-leave-active,
+  .slide-next-enter-active,
+  .slide-next-leave-active,
+  .slide {
+    transition: all 0.5s ease;
   }
-  .slider-enter{
-    transform: translateX(100%);
+  .slide-prev-enter-from,
+  .slide-next-leave-to {
+    left: -33.3%;
   }
-  .slider-leave-to{
-    transform: translateX(-100%);
+  .slide-next-enter-from,
+  .slide-prev-leave-to {
+    left: 100%;
   }
+
 </style>

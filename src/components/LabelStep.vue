@@ -1,5 +1,5 @@
 <template>
-<div class="absolute left-0 bottom-0">
+<div class="absolute left-0">
   <p class="text-black my-2 ml-10 mr-28">
     <slot></slot>
   </p>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'Label'
+  name: 'LabelStep'
 }
 </script>
 
