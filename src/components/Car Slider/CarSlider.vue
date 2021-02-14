@@ -105,7 +105,7 @@ export default {
     top:82%
   }
 }
-@media screen and (max-width: 640px){
+@media screen and (max-width: 639px){
   .cars .swiper-button-prev,.cars .swiper-button-next{
     top: 90%;
   }
