@@ -11,7 +11,7 @@
         <img v-for="item in 4" :key="item"
              :src="require('@/assets/img/cars/'+type+'/'+car.mark+'_'+car.model+'/'+item+'.png')"
              alt="Image of car"
-             class="w-5/6 sm:w-1/2 h-72 lg:h-56 xl:h-60 2xl:h-64 mb-2 sm:mb-0">
+             class="w-5/6 sm:w-1/2 h-72 xl:h-60 2xl:h-64 mb-2 sm:mb-0">
       </div>
       <div class="second-part flex  flex-col items-center justify-center pb-10 pt-6 ">
         <h6 class="font-bold mb-2 text-white text-xl">{{car.mark}} {{car.model}}</h6>
@@ -88,14 +88,26 @@ export default {
     content: '';
   }
   background: url("../../assets/img/controls/ControlArrow1.svg") no-repeat center;
-  top: 85%;
+  top: 80%;
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
 }
 .cars .swiper-button-prev{
   transform: rotate(180deg);
+  left: 2rem;
 }
-@media screen and (max-width: 767px){
+.cars .swiper-button-next{
+  right: 2rem;
+}
+@media screen and (max-width: 767px) {
   .cars .swiper-button-prev,.cars .swiper-button-next{
-    top: 92%;
+    top:82%
+  }
+}
+@media screen and (max-width: 640px){
+  .cars .swiper-button-prev,.cars .swiper-button-next{
+    top: 90%;
   }
 }
 </style>
