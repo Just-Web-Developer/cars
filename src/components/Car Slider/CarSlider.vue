@@ -87,32 +87,5 @@ export default {
   &::after{
     content: '';
   }
-  background: url("../../assets/img/controls/ControlArrow1.svg") no-repeat center;
-  top: 80%;
-  width: 4rem;
-  height: 4rem;
-  position: absolute;
-}
-.cars .swiper-button-prev{
-  transform: rotate(180deg);
-  left: 2rem;
-}
-.cars .swiper-button-next{
-  right: 2rem;
-}
-@media screen and (max-width: 767px) {
-  .cars .swiper-button-prev,.cars .swiper-button-next{
-    top:82%
-  }
-}
-@media screen and (max-width: 639px){
-  .cars .swiper-button-prev,.cars .swiper-button-next{
-    top: 90%;
-  }
-}
-@media screen and (min-width: 1536px){
-  .cars .swiper-button-prev,.cars .swiper-button-next{
-    top: 83.5%;
-  }
 }
 </style>
