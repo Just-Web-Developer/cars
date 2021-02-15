@@ -11,9 +11,9 @@
         <img v-for="item in 4" :key="item"
              :src="require('@/assets/img/cars/'+type+'/'+car.mark+'_'+car.model+'/'+item+'.png')"
              alt="Image of car"
-             class="w-5/6 sm:w-1/2 h-72 xl:h-60 2xl:h-64 mb-2 sm:mb-0">
+             class="w-5/6 sm:w-1/2 h-72 lg:h-52 xl:h-56 2xl:h-60 mb-2 sm:mb-0">
       </div>
-      <div class="second-part flex  flex-col items-center justify-center pb-10 pt-6 ">
+      <div class="second-part flex  flex-col items-center justify-center pb-10 pt-6 lg:pt-2 ">
         <h6 class="font-bold mb-2 text-white text-xl">{{car.mark}} {{car.model}}</h6>
         <p style="color: #e2e2e2">Цена под ключ с ремонтом: <span class="text-white">{{ car.priceWithRepair }}</span></p>
         <p style="color: #e2e2e2">Цена на внутреннем рынке: <span class="text-white">{{ car.priceOnDomesticMarket }}</span></p>
@@ -108,6 +108,11 @@ export default {
 @media screen and (max-width: 639px){
   .cars .swiper-button-prev,.cars .swiper-button-next{
     top: 90%;
+  }
+}
+@media screen and (min-width: 1536px){
+  .cars .swiper-button-prev,.cars .swiper-button-next{
+    top: 83.5%;
   }
 }
 </style>

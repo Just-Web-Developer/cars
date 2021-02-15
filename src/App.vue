@@ -20,7 +20,7 @@
       </nav>
       <div class="steps grid md:grid-cols-1 lg:grid-cols-2 ">
         <div class="buttons relative row-start-1 col-start-1 md:row-end-2 md:col-end-1 lg:row-end-1  lg:col-end-2 ">
-          <div class="flex flex-col items-center md:block md:pl-10 md:pb-64">
+          <div class="flex flex-col items-center md:block md:pl-10 pb-64 lg:pb-0">
             <h1 class="text-center md:text-left uppercase text-3xl text-white mt-14 max-w-md">
               Пригон лучших марок автомобилей из США
             </h1>
