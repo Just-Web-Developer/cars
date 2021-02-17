@@ -89,14 +89,11 @@ body{
 .output{
   background: $output;
 }
-.steps{
-  grid-template-rows: 0.25fr 0.4834fr 1fr;
-}
 .advantages1.wrapper{
-  height: 30rem;
+  height: 26.2rem;
 }
 .advantages2.wrapper{
-  height: 24rem;
+  height: 21.2rem;
 }
 .arrow{
   top: 60% ;
@@ -111,29 +108,44 @@ body{
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);;
 }
 .steps{
-  grid-template-rows: 0.25fr 0.2fr 1fr;
+  grid-template-rows: 0.25fr 0.4834fr 2.46fr;
 }
 .bg-step2-loosing-opacity{
-  bottom:14.1rem;
+  bottom:16.3rem;
+}
+.control{
+  top: 89.5%;
 }
 @media screen and (min-width: 640px){
   .bg-step2-loosing-opacity{
-    bottom:13.85rem;
+    bottom:16rem;
+  }
+  .steps{
+    grid-template-rows: 0.25fr 0.4834fr 1.41fr;
+  }
+  .control{
+    top: 83.5%;
+  }
+  .advantages1.wrapper{
+    height: 20rem;
+  }
+  .advantages2.wrapper{
+    height: 17rem;
   }
 
 }
 @media screen and (min-width: 768px) {
   .steps{
-    grid-template-rows: 0.25fr 0.4834fr 1fr;
+    grid-template-rows: 0.25fr 0.4834fr 1.729fr;
   }
   .bg-step2-loosing-opacity{
-    bottom:13.7rem;
+    bottom:15.8rem;
   }
   .advantages1.wrapper{
-    height: 30rem;
+    height: 27rem;
   }
   .advantages2.wrapper{
-    height: 24rem;
+    height: 22.2rem;
   }
   .arrow{
     top: 60% ;
@@ -147,19 +159,25 @@ body{
     bottom: 0;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);;
   }
+  .control{
+    top: 81.5%;
+  }
 }
 @media screen and (min-width: 1024px) {
   .steps{
-    grid-template-rows: 1fr 0.4834fr;
+    grid-template-rows: 1fr 0.533fr;
   }
   .bg-step2-loosing-opacity{
-    bottom:12.8rem;
+    bottom:16rem;
   }
   .advantages1.wrapper{
-    height: 30rem;
+    height: 26.5rem;
   }
   .advantages2.wrapper{
-    height: 24rem;
+    height: 22rem;
+  }
+  .control{
+    top: 81.2%;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -167,13 +185,19 @@ body{
     font-size: 18px;
   }
   .advantages1.wrapper{
-    height: 30rem;
+    height: 23rem;
   }
   .advantages2.wrapper{
-    height: 22rem;
+    height: 19rem;
+  }
+  .steps{
+    grid-template-rows: 1fr 0.56fr;
+  }
+  .control{
+    top: 80.6%;
   }
   .bg-step2-loosing-opacity{
-    bottom:13.85rem;
+    bottom:17rem;
   }
 }
 @media screen and (min-width: 1536px) {
@@ -181,7 +205,13 @@ body{
     font-size: 20px;
   }
   .bg-step2-loosing-opacity{
-    bottom:14.75rem;
+    bottom:17.9rem;
+  }
+  .control{
+    top: 80.1%;
+  }
+  .steps{
+    grid-template-rows: 1fr 0.586fr;
   }
 }
 

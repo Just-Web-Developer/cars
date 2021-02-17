@@ -4,11 +4,15 @@
     <div class="header h-full mb-2 md:w-full lg:w-1/3 lg:pl-10 flex flex-col items-center lg:block">
       <h1 class="text-3xl font-bold mb-6 text-center md:text-left" style="color: rgba(40,40,40,1);">{{advantages.header}}</h1>
       <a href="#form">
-        <button class="rounded-3xl border border-black px-5 py-1">{{ advantages.button }}</button>
+        <button class="rounded-3xl border border-black px-8 py-2">{{ advantages.button }}</button>
       </a>
     </div>
-    <div class="wrapper flex relative overflow-x-hidden w-full left-12 md:mt-4"
-      :class="advantages.folderName === 'advantages_1' ? 'advantages1' : 'advantages2'">
+    <div class="wrapper flex relative overflow-x-hidden w-full left-12"
+      :class="advantages.folderName === 'advantages_1' ? 'advantages1' : 'advantages2'"
+      @mouseover="sliding =false"
+      @mouseout="sliding = true">
+      <div class="absolute z-40 top-0 left-0 right-0 bottom-0" @mousedown="swipeStart($event)" @mouseup="swipeEnd($event)" @touchstart="swipeStart($event)" @touchend="swipeEnd($event)">
+      </div>
       <div v-for="(advantage, index) in  advantages.cards"
            :key="advantage"
            class="h-full">
@@ -16,12 +20,15 @@
           <div v-if="index <= 4 "
                class="absolute z-10 slide h-full"
                :class="index === 0 ? 'first' : index === 1 ? 'left-0' : index === 2 ? 'third' : index === 3 ? 'fourth' : index === 4 ? 'fifth' : ''">
-            <div class="flex relative w-full flex-col text-white  px-4 py-8 dark-bg h-full rounded-2xl">
+            <div class="flex relative w-full flex-col text-white  p-8 dark-bg h-full rounded-2xl">
               <div class="flex items-center">
-                <img :src="require('@/assets/img/' + advantages.folderName +'/'+ advantage.icon + '.png')" alt="">
+                <div class="img flex items-center justify-center w-14 h-14 p-1" style="background: rgba(94,94,94,1); border-radius: 50%">
+                  <img :src="require('@/assets/img/' + advantages.folderName +'/'+ advantage.icon + '.svg')" class="" alt="">
+                </div>
+                <p v-if="advantages.folderName === 'advantages_2'" class="text-white font-light text-sm ml-2.5">{{advantage.timeRange}}</p>
               </div>
-              <h2 class="my-6 text-xl uppercase">{{advantage.header}}</h2>
-              <p>{{advantage.description}}</p>
+              <h2 class="my-5 text-xl uppercase font-bold">{{advantage.header}}</h2>
+              <p class="text-sm">{{advantage.description}}</p>
             </div>
           </div>
         </transition>
@@ -29,10 +36,12 @@
       <div class="bg absolute left-1/3 top-0 bottom-0  bg-getting-opacity z-30 right-5 sm:right-12"></div>
     </div>
     <div class="controls ">
-      <div class="arrow left absolute lg:top-1/2 left-3 lg:left-1/4 z-40 cursor-pointer transform -translate-y-1/2" @click="changeSlide('prev')">
+      <div class="arrow left absolute lg:top-1/2 left-3 lg:left-1/4 z-40 cursor-pointer transform -translate-y-1/2"
+           @click="changeSlide('prev', true)">
         <img src="@/assets/img/controls/arrow2.svg" alt="">
       </div>
-      <div class="arrow right absolute lg:top-1/2 right-3 lg:right-10 z-40 cursor-pointer transform rotate-180 transform -translate-y-1/2" @click="changeSlide('next')">
+      <div class="arrow right absolute lg:top-1/2 right-3 lg:right-10 z-40 cursor-pointer transform rotate-180 transform -translate-y-1/2"
+           @click="changeSlide('next', true)">
         <img src="@/assets/img/controls/arrow2.svg" alt="">
       </div>
     </div>
@@ -47,11 +56,33 @@ export default {
   data () {
     return {
       advantagesData: this.advantages,
-      transName: ''
+      transName: '',
+      sliding: true
     }
   },
   methods: {
-    changeSlide: function (direction) {
+    swipeStart: function (e) {
+      if (e.clientX) {
+        this.startPos = e.clientX
+      } else {
+        this.startPos = e.touches[0].clientX
+      }
+    },
+    swipeEnd: function (e) {
+      if (e.clientX) {
+        this.endPos = e.clientX
+      } else {
+        this.endPos = e.changedTouches[0].clientX
+      }
+      if (this.startPos > this.endPos) {
+        this.changeSlide('next', true)
+      } else if (this.startPos < this.endPos) {
+        this.changeSlide('prev', true)
+      } else {
+        this.stopSlider()
+      }
+    },
+    changeSlide: function (direction, stop) {
       if (direction === 'prev') {
         this.transName = 'slide-prev'
         this.advantagesData.cards.unshift(this.advantagesData.cards.pop())
@@ -65,7 +96,26 @@ export default {
           this.transName = ''
         }, 500)
       }
+      if (stop) {
+        this.stopSlider()
+      }
+    },
+    autoSlider: function () {
+      setInterval(() => {
+        if (this.sliding === true) {
+          this.changeSlide('next', false)
+        }
+      }, 2000)
+    },
+    stopSlider: function () {
+      this.sliding = false
+      setTimeout(() => {
+        this.sliding = true
+      }, 3000)
     }
+  },
+  mounted () {
+    this.autoSlider()
   }
 }
 </script>
@@ -86,12 +136,6 @@ export default {
     .slide-next-enter-from,
     .slide-prev-leave-to {
       left: 100%;
-    }
-
-    .slide{
-      img{
-        width: 3.5rem;
-      }
     }
   }
   .advantages1{
@@ -131,38 +175,37 @@ export default {
 @media screen and (max-width: 767px){
   .advantages1{
     .slide{
-      width: 60%;
+      width: 70%;
     }
     .first{
-      left: -70%;
+      left: -80%;
     }
     .third{
-      left: 70%;
+      left: 80%;
     }
     .fourth{
-      left: 150%;
+      left: 160%;
     }
     .fifth{
-      left: 230%;
+      left: 240%;
     }
   }
   .advantages2{
     .slide{
-      width: 60%;
+      width: 70%;
     }
     .first{
-      left: -70%;
+      left: -80%;
     }
     .third{
-      left: 70%;
+      left: 80%;
     }
     .fourth{
-      left: 150%;
+      left: 160%;
     }
     .fifth{
-      left: 230%;
+      left: 240%;
     }
   }
 }
 </style>
-:class="index === 0 ? 'left:-37%;' : index === 1 ? 'left:0;' : index === 2 ? 'left:37%;' : index === 3 ? 'left:74%;' : index === 4 ? 'left:111%;' : ''">

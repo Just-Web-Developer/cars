@@ -2,17 +2,17 @@
   <div>
     <header class="w-full dark-bg">
       <nav class="py-4 px-10 flex justify-between w-full">
-        <div class="logo"><img src="./assets/img/logo_cars1.png" class="w-24"  alt=""></div>
+        <div class="logo"><img src="./assets/img/logo.svg" class="w-24"  alt=""></div>
           <div class="nav-items font-bold text-white flex items-center fixed flex-col bg-grad
           justify-around w-screen h-2/3 left-0 top-0 z-50 pt-14 md:w-4/5 lg:w-3/5 md:flex-row md:static md:justify-between md:pt-0 md:bg-none"
           v-if="nav">
             <div class="cross w-10 h-10 absolute right-10 top-5 cursor-pointer md:hidden" @click="nav = false">
               <img src="./assets/img/controls/cross.png" class="w-full h-full" alt="">
             </div>
-            <a href="#advantages1" class="border border-white py-3 w-60 text-center md:border-0 md:p-0 md:w-auto " >Почему нас выбирают?</a>
-            <a href="#advantages2" class="border border-white py-3 w-60 text-center md:border-0 md:w-auto">Процес получения</a>
-            <a href="#calculator" class="border border-white py-3 w-60 text-center md:border-0 md:w-auto">Расчет стоимости</a>
-            <a href="#form" class="border border-white py-3 w-60 text-center md:border-0 md:w-auto">Контакты</a>
+            <a href="#advantages1" class="border border-white py-3 w-60 text-center font-bold md:border-0 md:p-0 md:w-auto " >Почему нас выбирают?</a>
+            <a href="#advantages2" class="border border-white py-3 w-60 text-center font-bold md:border-0 md:w-auto">Процес получения</a>
+            <a href="#calculator" class="border border-white py-3 w-60 text-center font-bold md:border-0 md:w-auto">Расчет стоимости</a>
+            <a href="#form" class="border border-white py-3 w-60 text-center font-bold md:border-0 md:w-auto">Контакты</a>
           </div>
         <div class="burger w-10 h-10 absolute right-10 top-5 cursor-pointer md:hidden" @click="nav = true">
           <img src="./assets/img/controls/burger.png" class="w-full h-full" alt="">
@@ -20,8 +20,8 @@
       </nav>
       <div class="steps grid md:grid-cols-1 lg:grid-cols-2 ">
         <div class="buttons relative row-start-1 col-start-1 md:row-end-2 md:col-end-1 lg:row-end-1  lg:col-end-2 ">
-          <div class="flex flex-col items-center md:block md:pl-10 pb-64 lg:pb-0">
-            <h1 class="text-center md:text-left uppercase text-3xl text-white mt-14 max-w-md">
+          <div class="flex flex-col items-center md:block md:pl-10 pb-64">
+            <h1 class="text-center md:text-left uppercase text-2xl sm:text-3xl text-white mt-14 max-w-md font-bold">
               Пригон лучших марок автомобилей из США
             </h1>
             <div class="buttons my-14 text flex flex-col items-center justify-center md:mb-0 md:flex-row md:items-baseline md:justify-start">
@@ -52,7 +52,7 @@
       <a href="mailto:info@youauto.com.ua" class="text-white mb-2">info@youauto.com.ua</a>
       <a href="teL:+380960000001" class="text-white mb-2">+380960000001</a>
       <a href="https://goo.gl/maps/wcGBbns5E43XFbn29" class="text-white mb-9">г. Киев, проспект Победы 15</a>
-      <img src="./assets/img/logo_cars1.png" class="w-48" alt="">
+      <img src="./assets/img/logo.svg" class="w-48" alt="">
       </footer>
   </div>
 </template>
@@ -256,32 +256,38 @@ export default {
           {
             icon: 3,
             header: 'Перевозка',
-            description: 'Автомобиль доставляется по морю из Америки в одесский порт.'
+            description: 'Автомобиль доставляется по морю из Америки в одесский порт.',
+            timeRange: '45-70 дней'
           },
           {
             icon: 1,
             header: 'Подбор и аукцион',
-            description: ' Ищем марку автомобиля по вашему запросу, мониторинг аукционов для оптимального предложения, оценка повреждений и победа на аукционе.'
+            description: ' Ищем марку автомобиля по вашему запросу, мониторинг аукционов для оптимального предложения, оценка повреждений и победа на аукционе.',
+            timeRange: '5-7 дней'
           },
           {
             icon: 2,
             header: 'Оплата',
-            description: ' Оплачиваете стоимость автомобиля с комиссией аукциона.'
+            description: ' Оплачиваете стоимость автомобиля с комиссией аукциона.',
+            timeRange: '2-3 дней'
           },
           {
             icon: 3,
             header: 'Перевозка',
-            description: 'Автомобиль доставляется по морю из Америки в одесский порт.'
+            description: 'Автомобиль доставляется по морю из Америки в одесский порт.',
+            timeRange: '45-70 дней'
           },
           {
             icon: 1,
             header: 'Подбор и аукцион',
-            description: ' Ищем марку автомобиля по вашему запросу, мониторинг аукционов для оптимального предложения, оценка повреждений и победа на аукционе.'
+            description: ' Ищем марку автомобиля по вашему запросу, мониторинг аукционов для оптимального предложения, оценка повреждений и победа на аукционе.',
+            timeRange: '5-7 дней'
           },
           {
             icon: 2,
             header: 'Оплата',
-            description: ' Оплачиваете стоимость автомобиля с комиссией аукциона.'
+            description: ' Оплачиваете стоимость автомобиля с комиссией аукциона.',
+            timeRange: '2-3 дней'
           }
 
         ]

@@ -4,8 +4,8 @@
          class="stat relative w-1/2 md:w-1/4 black-bg py-10 text-white flex items-center flex-col"
          :key="stat.id"
          :class="index !== 3 > 768 ? 'separator' : ''">
-      <h2 class="text-grad text-6xl bg-grad">{{stat.value}}</h2>
-      <p class="uppercase">{{stat.name}}</p>
+      <h2 class="text-grad text-6xl bg-grad font-extrabold">{{stat.value}}</h2>
+      <p class="uppercase font-bold">{{stat.name}}</p>
     </div>
   </div>
 </template>

@@ -7,9 +7,10 @@
           <div v-if="index <= 4 "
                class="w-1/3 absolute z-10 slide h-full black-bg"
                :class="index === 0 ? '-left-1/3' : index === 1 ? 'left-0' : index === 2 ? 'left-1/3' : index === 3 ? 'left-2/3' : index === 4 ? 'left-full' : ''">
-            <div class="flex justify-center items-center relative w-full h-full flex-col   px-4 py-2 md:py-8"
+            <div class="flex justify-center items-center relative w-full h-full flex-col px-4 py-2 md:py-8"
                  :class="index === 3 ? '' : 'separator-types'"
-                 @click="chose(type.label)">
+                 @click="chose(type.label)"
+                 @mousedown="swipeStart($event)" @mouseup="swipeEnd($event)" @touchstart="swipeStart($event)" @touchend="swipeEnd($event)">
               <svg class="cursor-pointer" :width="type.icon.width" :height="type.icon.height" :viewBox="type.icon.viewbox" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
                       clip-rule="evenodd"
@@ -25,17 +26,17 @@
                 </defs>
               </svg>
               <h6 class="font-bold mt-2 mb-3 text-white text-opacity-50" :class="chosed === type.label ? 'text-opacity-100' : ''">{{type.name}}</h6>
-              <p class="text-center text-xs text-white text-opacity-50 px-3" :class="chosed === type.label ? 'text-opacity-100' : ''">{{type.description}}</p>
+              <p class="text-center text-xs text-white text-opacity-50 px-3 font-light">{{type.description}}</p>
             </div>
           </div>
         </transition>
       </div>
       <div class="controls ">
-        <div class="left absolute top-1/2 left-2 z-50 transform rotate-180 cursor-pointer" @click="changeSlide('prev')">
-          <img src="@/assets/img/controls/ControlArrow1.svg" alt="">
+        <div class="left absolute top-1/2 left-3 md:left-4 lg:left-2 z-50 transform rotate-180 cursor-pointer -translate-y-1/2" @click="changeSlide('prev')">
+          <img src="@/assets/img/controls/ControlArrow1.svg" class="w-4 lg:w-3" alt="">
         </div>
-        <div class="right absolute top-1/2 right-2 z-50 cursor-pointer" @click="changeSlide('next')">
-          <img src="@/assets/img/controls/ControlArrow1.svg" alt="">
+        <div class="right absolute top-1/2 right-3 md:right-4 lg:right-2 z-50 cursor-pointer transform -translate-y-1/2" @click="changeSlide('next')">
+          <img src="@/assets/img/controls/ControlArrow1.svg" class="w-4 lg:w-3" alt="">
         </div>
       </div>
   </div>
@@ -54,6 +55,25 @@ export default {
     }
   },
   methods: {
+    swipeStart: function (e) {
+      if (e.clientX) {
+        this.startPos = e.clientX
+      } else {
+        this.startPos = e.touches[0].clientX
+      }
+    },
+    swipeEnd: function (e) {
+      if (e.clientX) {
+        this.endPos = e.clientX
+      } else {
+        this.endPos = e.changedTouches[0].clientX
+      }
+      if (this.startPos > this.endPos) {
+        this.changeSlide('next')
+      } else if (this.startPos < this.endPos) {
+        this.changeSlide('prev')
+      }
+    },
     changeSlide: function (direction) {
       if (direction === 'prev') {
         this.transName = 'slide-prev'

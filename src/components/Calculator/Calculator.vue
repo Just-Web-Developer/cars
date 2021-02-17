@@ -72,9 +72,9 @@
         <button type="submit" class="rounded-3xl bg-grad px-12 py-2 dark-text mb-10">Расчитать</button>
       </form>
 
-    <span class="text-white text-sm">Приблизительная расчетная стоимость</span>
+    <span class="text-white text-sm mb-2">Приблизительная расчетная стоимость</span>
     <div class="output px-20 md:px-36 py-3 flex justify-center items-center rounded-xl">
-      <p class="output-text bg-grad">{{ result.toLocaleString() }} $</p>
+      <p class="output-text bg-grad font-extrabold">{{ result.toLocaleString() }} $</p>
     </div>
   </div>
 </template>
