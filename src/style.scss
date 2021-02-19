@@ -90,10 +90,10 @@ body{
   background: $output;
 }
 .advantages1.wrapper{
-  height: 20rem;
+  height: 26.2rem;
 }
 .advantages2.wrapper{
-  height: 17rem;
+  height: 21.2rem;
 }
 .arrow{
   top: 60% ;
@@ -108,7 +108,7 @@ body{
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);;
 }
 .steps{
-  grid-template-rows: 0.25fr 0.4834fr 4.76fr;
+  grid-template-rows: 0.25fr 0.5fr 4.76fr;
 }
 .bg-step2-loosing-opacity{
   bottom:16.4rem;
@@ -121,7 +121,7 @@ body{
     bottom:16rem;
   }
   .steps{
-    grid-template-rows: 0.25fr 0.4834fr 2.19fr;
+    grid-template-rows: 0.25fr 0.5fr 2.19fr;
   }
   .control{
     top: 79%;
