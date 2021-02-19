@@ -4,6 +4,14 @@
         <stop  offset="50.52%" stop-color="#EFC7ED"/>
         <stop  offset="99.9%" stop-color="#FFD4D9"/>
       </linearGradient>
+      <linearGradient id="Gradient_cars_2" x1="0" x2="1" y1="0" y2="0">
+        <stop  offset="0.1%" stop-color="#EF0073"/>
+        <stop  offset="99.9%" stop-color="#6600B6 "/>
+      </linearGradient>
+      <linearGradient id="Gradient_cars_3" x1="0" x2="1" y1="0" y2="0">
+        <stop  offset="0.1%" stop-color="#D599F8"/>
+        <stop  offset="99.9%" stop-color="#9752FF  "/>
+      </linearGradient>
 	<style>
 		tspan { white-space:pre }
 		.shp0 { fill: #FFFFFF } 
