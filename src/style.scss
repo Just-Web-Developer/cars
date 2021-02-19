@@ -90,10 +90,10 @@ body{
   background: $output;
 }
 .advantages1.wrapper{
-  height: 26.2rem;
+  height: 20rem;
 }
 .advantages2.wrapper{
-  height: 21.2rem;
+  height: 17rem;
 }
 .arrow{
   top: 60% ;
@@ -108,10 +108,10 @@ body{
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);;
 }
 .steps{
-  grid-template-rows: 0.25fr 0.4834fr 2.46fr;
+  grid-template-rows: 0.25fr 0.4834fr 4.76fr;
 }
 .bg-step2-loosing-opacity{
-  bottom:16.3rem;
+  bottom:16.4rem;
 }
 .control{
   top: 89.5%;
@@ -121,10 +121,10 @@ body{
     bottom:16rem;
   }
   .steps{
-    grid-template-rows: 0.25fr 0.4834fr 1.41fr;
+    grid-template-rows: 0.25fr 0.4834fr 2.19fr;
   }
   .control{
-    top: 83.5%;
+    top: 79%;
   }
   .advantages1.wrapper{
     height: 20rem;
@@ -136,10 +136,10 @@ body{
 }
 @media screen and (min-width: 768px) {
   .steps{
-    grid-template-rows: 0.25fr 0.4834fr 1.729fr;
+    grid-template-rows: 0.25fr 0.7fr 2.47fr;
   }
   .bg-step2-loosing-opacity{
-    bottom:15.8rem;
+    bottom:16rem;
   }
   .advantages1.wrapper{
     height: 27rem;
@@ -165,10 +165,10 @@ body{
 }
 @media screen and (min-width: 1024px) {
   .steps{
-    grid-template-rows: 1fr 0.533fr;
+    grid-template-rows: 1fr 0.58fr;
   }
   .bg-step2-loosing-opacity{
-    bottom:16rem;
+    bottom:16.3rem;
   }
   .advantages1.wrapper{
     height: 26.5rem;
@@ -177,7 +177,7 @@ body{
     height: 22rem;
   }
   .control{
-    top: 81.2%;
+    top: 80%;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -191,10 +191,10 @@ body{
     height: 19rem;
   }
   .steps{
-    grid-template-rows: 1fr 0.56fr;
+    grid-template-rows: 1fr 0.60fr;
   }
   .control{
-    top: 80.6%;
+    top: 79.6%;
   }
   .bg-step2-loosing-opacity{
     bottom:17rem;

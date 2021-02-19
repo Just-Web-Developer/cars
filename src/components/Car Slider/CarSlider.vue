@@ -5,10 +5,9 @@
           <div class="absolute z-40 top-0 left-0 right-0 bottom-0" @mousedown="swipeStart($event)" @mouseup="swipeEnd($event)" @touchstart="swipeStart($event)" @touchend="swipeEnd($event)">
           </div>
           <div class="justify-center sm:justify-start first-part flex flex-wrap mt-1">
-            <img v-for="item in 4" :key="item"
-                 :src="require('@/assets/img/cars/'+type+'/'+car.mark+'_'+car.model+'/'+item+'.png')"
-                 alt="Image of car"
-                 class="w-5/6 sm:w-1/2 h-72 lg:h-60 mb-2 sm:mb-0">
+            <div v-for="item in 4" :key="item"
+                 class="w-5/6 sm:w-1/2 h-80 sm:h-60 md:h-72 lg:h-56 2xl:h-60 mb-2 sm:mb-0 bg-cover bg-center"
+                 :style="'background-image: url(\''+require('@/assets/img/cars/'+type+'/'+car.mark+'_'+car.model+'/'+item+'.png')+'\')'"></div>
           </div>
           <div class="second-part flex  flex-col items-center justify-center pb-5 pt-5 ">
             <h6 class="font-bold mb-2 text-white text-xl">{{car.mark}} {{car.model}}</h6>
@@ -31,7 +30,7 @@
       <div @click="changeSlide('prev')" class="control absolute z-50 left-6 transform rotate-180 cursor-pointer">
         <img :src="require('@/assets/img/controls/ControlArrow1.svg')" class="w-4 lg:w-3" alt="">
       </div>
-    <LabelStep :class="'bg-step2-loosing-opacity z-50'">Шаг 2</LabelStep>
+    <LabelStep :class="'bg-step2-loosing-opacity z-40'">Шаг 2</LabelStep>
   </div>
 </template>
 
@@ -73,9 +72,9 @@ export default {
       } else {
         this.endPos = e.changedTouches[0].clientX
       }
-      if (this.startPos > this.endPos) {
+      if (this.startPos > this.endPos + 50) {
         this.changeSlide('next')
-      } else if (this.startPos < this.endPos) {
+      } else if (this.startPos < this.endPos - 50) {
         this.changeSlide('prev')
       }
     },

@@ -68,9 +68,9 @@ export default {
       } else {
         this.endPos = e.changedTouches[0].clientX
       }
-      if (this.startPos > this.endPos) {
+      if (this.startPos > this.endPos + 50) {
         this.changeSlide('next')
-      } else if (this.startPos < this.endPos) {
+      } else if (this.startPos < this.endPos - 50) {
         this.changeSlide('prev')
       }
     },
