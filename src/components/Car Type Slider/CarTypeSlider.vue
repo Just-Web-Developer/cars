@@ -2,12 +2,12 @@
   <div class="wrapper flex relative overflow-x-hidden w-full h-full">
       <div v-for="(type,index) in carTypes"
            :key="type"
-           class="h-full">
+           class="h-full car-types">
         <transition :name="transName">
           <div v-if="index <= 4 "
-               class="w-1/3 absolute z-10 slide h-full black-bg"
-               :class="index === 0 ? '-left-1/3' : index === 1 ? 'left-0' : index === 2 ? 'left-1/3' : index === 3 ? 'left-2/3' : index === 4 ? 'left-full' : ''">
-            <div class="flex justify-center items-center relative w-full h-full flex-col px-4 py-2 md:py-8"
+               class="w-full sm:w-1/3 absolute z-10 slide h-full black-bg"
+               :class="index === 0 ? 'sm:-left-1/3 slide1' : index === 1 ? 'sm:left-0 slide2' : index === 2 ? 'sm:left-1/3 slide3' : index === 3 ? 'sm:left-2/3 slide4' : index === 4 ? 'sm:left-full slide5' : ''">
+            <div class="flex justify-center items-center relative w-full h-full flex-col px-4 py-4 sm:py-2 md:py-8"
                  :class="index === 3 ? '' : 'separator-types'"
                  @click="chose(type.label)"
                  @mousedown="swipeStart($event)" @mouseup="swipeEnd($event)" @touchstart="swipeStart($event)" @touchend="swipeEnd($event)">
@@ -112,6 +112,25 @@ export default {
   .slide-next-enter-from,
   .slide-prev-leave-to {
     left: 100%;
+  }
+  @media screen and (max-width: 639px) {
+    .car-types{
+      .slide1{
+        left: -200%;
+      }
+      .slide2{
+        left: -100%;
+      }
+      .slide3{
+        left: 0%;
+      }
+      .slide4{
+        left: 100%;
+      }
+      .slide5{
+        left: 200%;
+      }
+    }
   }
 </style>
 <!--https://www.shutterstock.com/ru/image-vector/car-type-model-objects-icons-set-407978929-->

@@ -98,15 +98,7 @@ body{
 .arrow{
   top: 60% ;
 }
-.separator-types:before{
-  content: '';
-  position: absolute;
-  width: 1px;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);;
-}
+
 .steps{
   grid-template-rows: 0.25fr 0.5fr 4.76fr;
 }
@@ -131,6 +123,15 @@ body{
   }
   .advantages2.wrapper{
     height: 17rem;
+  }
+  .separator-types:before{
+    content: '';
+    position: absolute;
+    width: 1px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);;
   }
 
 }

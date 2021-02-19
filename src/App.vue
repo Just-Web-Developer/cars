@@ -292,7 +292,7 @@ export default {
 
         ]
       },
-      chosedCarType: 'sedan',
+      chosedCarType: 'pickup',
       statistic: [
         {
           name: 'ПРИГОНОВ В МЕСЯЦ',
